@@ -8,12 +8,18 @@
   --color-dark: #213746;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+}
+
 html{
   background-color: #E8EEF1;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body{
-  overflow-x: hidden;
   color: var(--color-dark);
 }
 
@@ -54,14 +60,143 @@ body{
 .bullets{
   width: 10px;
   height: 10px;
-  border-radius: 50%;
+  border-radius: 500px;
   background-color: #3d5564c2;
+  transition: .5s;
 }
 
 .bullets.active{
   background-color: var(--color-primary);
+  transition: height .5s;
+  height: 20px;
 }
 
 .shadow-picture{
   background: linear-gradient(50deg, #057dcd33, #17b1b400);
+}
+
+.hover-transform-icon{
+  transition: .4s;
+  position: relative;
+}
+
+.hover-transform-icon .icon{
+  opacity: 0;
+  transform: translate(-12px, -50%);
+  transition: .4s;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.hover-transform-icon:hover .icon{
+  opacity: 1;
+  transform: translate(-6px, -50%);
+}
+
+.pagination-container {
+  display: flex;
+  list-style-type: none;
+}
+
+.pagination-item {
+  padding: 0 12px;
+  height: 32px;
+  text-align: center;
+  margin: auto 4px;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  letter-spacing: 0.01071em;
+  border-radius: 16px;
+  line-height: 1.43;
+  font-size: 13px;
+  min-width: 32px;
+}
+
+.pagination-item.dots:hover {
+  background-color: transparent;
+  cursor: default;
+}
+.pagination-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+}
+
+.pagination-item.selected {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.arrow::before {
+  position: relative;
+  /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+  content: '';
+  /* By using an em scale, the arrows will size with the font */
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  border-right: 0.12em solid rgba(0, 0, 0, 0.87);
+  border-top: 0.12em solid rgba(0, 0, 0, 0.87);
+}
+
+.arrow.left {
+  transform: rotate(-135deg) translate(-50%);
+}
+
+.arrow.right {
+  transform: rotate(45deg);
+}
+
+.pagination-item.disabled {
+  pointer-events: none;
+}
+
+.pagination-item .arrow::before {
+  border-right: 0.12em solid rgba(0, 0, 0, 0.43);
+  border-top: 0.12em solid rgba(0, 0, 0, 0.43);
+}
+
+.pagination-item:hover {
+  background-color: transparent;
+  cursor: default;
+}
+
+.card:hover .card-body>div img{
+  transform: scale(1);
+}
+
+.card .card-body>div.relative::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(70, 63, 63, 0.288);
+  opacity: 0;
+  transition: .3s;
+}
+
+.card:hover .card-body>div.relative::after{
+  opacity: 1;
+}
+
+
+@media screen and (min-width: 768px) {
+  /* html{
+    overflow-y: hidden;
+  } */
+  .content{
+    overflow-y: auto;
+    min-height: 300px;
+    height: 80%;
+    margin-bottom: 40px;
+  }
+  .content::-webkit-scrollbar{
+    border-radius: 20px;
+    background-color: #2137461a;
+    width: 8px;
+  }
+  .content::-webkit-scrollbar-thumb{
+    background-color: #446f8b9f;
+    border-radius: 20px;
+  }
 }

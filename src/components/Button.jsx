@@ -1,9 +1,9 @@
 // import { forwardRef } from 'react'
-import PropTypes from 'prop-types';
 // import { cls } from '../utils/utils';
-
+import PropTypes from 'prop-types';
 import { string } from "prop-types"
 import { twMerge } from "tailwind-merge"
+import { motion } from "framer-motion"
 
 // const classes = {
 //     base: 'focus:outline-none transition ease-in-out duration-300 text-center',
@@ -72,7 +72,7 @@ const Button = ({className, children, ...props}) => {
     className: string
   }
   return (
-    <button className={twMerge('p-2 bg-primary text-white transition-all duration-300 rounded-lg', className)} {...props}>{children}</button>
+    <motion.button whileTap={{scale: 0.8}} className={twMerge('p-2 bg-primary text-white transition-all duration-300 rounded-lg', className)} {...props}>{children}</motion.button>
   )
 }
 

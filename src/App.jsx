@@ -13,8 +13,8 @@ function App() {
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Front/>} >
           <Route index element={<Home/>} />
-          <Route path='about' element={<About/>} />
-          <Route path='projects' element={<Projects/>} />
+          <Route path='about' element={<About/>}/>
+          <Route path='projects' element={<Projects/>}/>
         </Route>
       </Routes>
     </AnimatePresence>

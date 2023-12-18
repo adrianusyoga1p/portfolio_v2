@@ -18,12 +18,12 @@ const Front = () => {
     <>
       <Header/>
       <AnimatePresence mode='wait'>
-        <main className='h-[calc(100vh-88px)]'>
-          <div className="container mx-auto h-full">
-            <div className="flex h-full items-center">
+        <main className='max-md:mt-[88px] md:h-[calc(100vh-88px)]'>
+          <div className="container mx-auto md:h-full">
+            <div className="flex md:h-full">
               {matches ? (
                 <motion.div
-                  className='h-full flex-1'
+                  className='flex-1'
                   variants={animations}
                   initial='initial'
                   animate='in'
@@ -34,7 +34,7 @@ const Front = () => {
                 </motion.div>
               ) : (
                 <motion.div
-                  className='h-full'
+                  className='flex-1'
                   variants={animations}
                   initial='initial'
                   animate='in'
@@ -44,43 +44,12 @@ const Front = () => {
                   <Outlet/>
                 </motion.div>
               )}
-              <div className="flex flex-col gap-2 justify-center ml-6 px-4">
+              <div className="flex flex-col max-md:hidden gap-2 justify-center px-4 self-center">
                 <BulletLink />
               </div>
             </div>
           </div>
         </main>
-        {/* <main className="container mx-auto relative h-full overflow-clip">
-          <div className="flex h-full max-sm:flex-col flex-row">
-            {matches ? (
-              <motion.div
-                className='h-full flex-1'
-                variants={animations}
-                initial='initial'
-                animate='in'
-                exit='out'
-                transition={{transition: .8}}
-              >
-                <Outlet/>
-              </motion.div>
-            ) : (
-              <motion.div
-                className='h-full'
-                variants={animations}
-                initial='initial'
-                animate='in'
-                exit='out'
-                transition={{transition: .8, delay: 2}}
-              >
-                <Outlet/>
-              </motion.div>
-            )}
-            <div className="flex max-sm:hidden flex-col gap-2 justify-center ml-14 max-sm:mb-12 max-sm:ml-0 px-4">
-              <BulletLink />
-            </div>
-          </div>
-          <img src={dotsImg} className="absolute -bottom-8 -left-16 -z-10 opacity-40 rotate-45" width={250} />
-        </main> */}
       </AnimatePresence>
       {/* <Footer/> */}
     </>
